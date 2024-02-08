@@ -1,4 +1,4 @@
-# CONNECT-4 (webapp mimi-project)
+# CONNECT-4 (webapp mini-project)
 ### A webapp version of the "CONNECT 4" game.
 *It was not built for client-server stucture (for now),*
 but it was mostly built for fun, and a bit for a training.
