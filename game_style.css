@@ -1,0 +1,52 @@
+/* THERE COULD APPEAR SOME CHANGES */
+
+:root {
+    --color_1: #ff5347;
+    --color_2: #ffbf47;
+    --color_1_dark: #5f1e19;
+    --color_2_dark: #4b3814;
+}
+html, body {height: 100%;}
+
+body {margin: 0; color: #ffffff; font-family: 'Red Hat Display', sans-serif;}
+#body_plain_color {background: #191919;}
+#body_color_1 {background: radial-gradient(circle at right, #191919 70%, var(--color_1_dark) 100%);}
+#body_color_2 {background: radial-gradient(circle at left, #191919 70%, var(--color_2_dark) 100%);}
+
+* {margin-block-start: 0; margin-block-end: 0; box-sizing: border-box;}
+table {border-spacing: 12px;}
+td {height: 60px; width: 60px;}
+
+.color_1 {background: var(--color_1);} /* can be changed */
+.color_2 {background: var(--color_2);} /* can be changed */
+
+/* HEADER BOX */
+#header_box {width: max-content; margin: 0 auto 1em; text-align: center;}
+#four {font-size: 2em;}
+
+/* WARN BOX */
+#warn_box {width: max-content; margin: 1em auto; text-align: center; min-height: 21px; color: #ffffff;}
+
+/* MAIN BOX */
+#main_box {width: max-content; margin: 1em auto;}
+
+#col_select_table {border: 2px dashed #ffffff2a; border-radius: 40px 40px 0 0; margin: 0 0 1em;}
+#col_select_table > tbody > tr > td {border: 2px dashed #ffffff2a; border-radius: 50%;}
+
+#game_table {border: 2px solid #ffffff94; border-radius: 0 0 40px 40px;}
+#game_table > tbody > tr > td {border: 2px solid #ffffff94; border-radius: 50%;}
+
+#start_box {width: max-content; margin: 2em auto 0;}
+#start_btn {
+    padding: 0.6em 1.2em;
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    color: #dfdfdf;
+    background: #242424;
+    border: none;
+    transition: background 0.25s ease-out;
+}
+#start_btn:hover {background: #131313; transition: background 0.25s ease-in;}
+#start_btn:active {background: #646464; transition: none;}
+#start_btn:disabled {background: #191919; color: #444444;}

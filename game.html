@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect 4 - Bluudek's Version</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;800;900&display=swap" rel="stylesheet">
+    
+    <!-- files -->
+    <link rel="stylesheet" href="game_style.css">
+    <script src="game_script.js" defer></script>
+</head>
+<body id="body_plain_color">
+    <!-- header/title -->
+    <div id="header_box">
+        <h1>CONNECT <span id="four">4</span></h1>
+        <p>Connect four tokens in a row (vertically, horizontally or diagonally) to win!</p>
+    </div>
+    <!-- warning box -->
+    <div id="warn_box"></div>
+    <!-- main/game section -->
+    <div id="main_box"></div>
+    <!-- start section -->
+    <div id="start_box"><button id="start_btn" onclick="startGame()">START</button></div>
+</body>
+</html>
