@@ -174,7 +174,7 @@ function checkWin(token_el){
 
 //GAME END
 function endGame(token_el, isWin, roofCols, type){
-    if(isWin == false && roofCols == x_in) showWarningOrInfo('win', '<b>Draw</b> (all columns are full, and there\'s no tokens in a row');
+    if(isWin == false && roofCols == x_in) showWarningOrInfo('win', '<b>Draw</b> (all columns are full, and there\'s no tokens in a row)');
     else if(isWin == true && roofCols == x_in) showWarningOrInfo('win', `${token_el.className} won (${type}) (with all columns full)`);
     else if(isWin == true && roofCols != x_in) showWarningOrInfo('win', `<b>${token_el.className}</b> won (${type})`);
 
