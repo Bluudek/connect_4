@@ -4,7 +4,7 @@
 but it was mostly built for fun, and a bit for a training.
 
 ### And also
-That's only a PvP game, because I need to take some more time for the "AI" thing.
+That's only a local PvP game, because I need to take some more time for the "AI" thing.
 
 ### SO
 If you have any questions about it or you want to contribute, go ahead.
