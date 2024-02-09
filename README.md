@@ -10,6 +10,8 @@ That's only a local PvP game, because I need to take some more time for the "AI"
 If you have any questions about it or you want to contribute, go ahead.
 (btw I'm not that familiar with how GitHub works, but I'll try to work with it in some way).
 
+**MORE FUNCTIONALITIES WILL BE MADE IN THE FUTURE**
+
 ## Here you got some screenshots of this mini-project
 ![game before start](/screenshots/1.png)
 ![red token](/screenshots/2.png)
