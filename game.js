@@ -1,5 +1,5 @@
 //VARIABLES
-var color = Math.floor(Math.random() * 2); //FIRST PLAYER IS PICKED RANDOMLY
+var color; //FIRST PLAYER WILL BE PICKED RANDOMLY IN START FUNCTION
 var x_in = 7; //TABLE WIDTH (in columns)
 var y_in = 6; //TABLE HEIGHT (in rows)
 
@@ -41,7 +41,9 @@ for(i=0;i<y_in;i++) game_table_array[i] = game_table_el.children[0].children[i].
 
 //GAME START
 function startGame(){
-    //  event listeners for columns in col_select_table
+color = Math.floor(Math.random() * 2);
+
+//  event listeners for columns in col_select_table
     col_select_table_el.children[0].children[0].addEventListener('mouseover', selectColumnColor, true); // calls selectCulumnColor function with info about the MOUSEOVER event
     col_select_table_el.children[0].children[0].addEventListener('mouseout', selectColumnColor, true); // calls selectCulumnColor function with info about the MOUSEOUT event
     col_select_table_el.children[0].children[0].addEventListener('click', putToken, true); // calls putToken function with info about the CLICK event
