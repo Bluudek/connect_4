@@ -1,5 +1,7 @@
 # CONNECT-4 (mini-project)
 $${\color{red}PROJECT \space IS \space BEING \space REWRITTEN \space (NEED \space TO \space FIX \space SOME \space PROBLEMS \space WITH \space STYLING \space AND \space TO \space ADD \space SOME \space FEATURES \space IN \space THE \space FUTURE)}$$
+!THIS VERSION IS STILL GONNA BE THERE, UNTIL I PUT IT ON A NEW RELEASE!
+
 ### A webapp version of the "CONNECT 4" game.
 *It was not built for client-server stucture (for now),*
 but it was mostly built for fun, and a bit for a training.
