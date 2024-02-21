@@ -1,4 +1,5 @@
 # CONNECT-4 (mini-project)
+
 ### Important!
 It isn't responsive at all (at least for now).
 
