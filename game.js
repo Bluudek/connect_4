@@ -1,15 +1,35 @@
 //VARIABLES
 var color = Math.floor(Math.random() * 2); //FIRST PLAYER IS PICKED RANDOMLY
-var x_in = 7; //TABLE WIDTH (in columns)
-var y_in = 6; //TABLE HEIGHT (in rows)
+var x_in; //TABLE WIDTH (in columns)
+var y_in; //TABLE HEIGHT (in rows)
 
 //DOM ELEMENTS
 const body = document.body; // body
+const start_box_wrapper_el = document.getElementById('start_box_wrapper'); // start box wrapper (as a parent element)
 const start_btn_el = document.getElementById('start_btn'); // start button
 const warn_box_el = document.getElementById('warn_box'); // warning && info div
 const main_box_el = document.getElementById('main_box'); // main game div
 const col_select_table_el = document.createElement('table'); // table for column selection
 const game_table_el = document.createElement('table'); // table for grid
+const stylesheet_game = document.querySelector('link[href*="game.css"]').sheet; // "game.css" stylesheet
+const grid_size_select_el = document.getElementById('grid_size');
+
+//COLOR SET SELECTION 
+function selectColors(index){
+    switch(index){
+        case 0:
+            stylesheet_game.cssRules[5].style.background = 'var(--red)';
+            stylesheet_game.cssRules[6].style.background = 'var(--yellow)';
+            break;
+        case 1:
+            stylesheet_game.cssRules[5].style.background = 'var(--blue)';
+            stylesheet_game.cssRules[6].style.background = 'var(--orange)';
+            break;
+        case 2:
+            stylesheet_game.cssRules[5].style.background = 'var(--green)';
+            stylesheet_game.cssRules[6].style.background = 'var(--purple)';
+    }
+}
 
 //GRID BUILDING (COLUMN SELECTION && GAME) with given x && y lengths
 function buildGrid(x, y){
@@ -31,23 +51,33 @@ function buildGrid(x, y){
     for(i=0; i<y; i++){
         game_table_el.children[0].appendChild(document.createElement('tr'));
         for(j=0; j<x; j++) game_table_el.children[0].children[i].appendChild(document.createElement('td'));
-    }
+    }    
 }
-buildGrid(x_in, y_in);
 
-//GAME TABLE ARRAY (to reach easier for wanted columns, by using loops)
 const game_table_array = new Array(y_in);
-for(i=0;i<y_in;i++) game_table_array[i] = game_table_el.children[0].children[i].children;
-
 //GAME START
 function startGame(){
+    console.log(grid_size_select_el.value);
+    switch(grid_size_select_el.value){
+        case '6x7': x_in = 7; y_in = 6; break;
+        case '7x9': x_in = 9; y_in = 7; break;
+        case '8x11': x_in = 11; y_in = 8;
+    }
+
+    buildGrid(x_in, y_in);
+    //GAME TABLE ARRAY (to reach easier for wanted columns, by using loops)
+    
+    for(i=0;i<y_in;i++) game_table_array[i] = game_table_el.children[0].children[i].children;
+
+    handleOrientationChange(mediaQuery_orientationPortrait);
+
     //  event listeners for columns in col_select_table
     col_select_table_el.children[0].children[0].addEventListener('mouseover', selectColumnColor, true); // calls selectCulumnColor function with info about the MOUSEOVER event
     col_select_table_el.children[0].children[0].addEventListener('mouseout', selectColumnColor, true); // calls selectCulumnColor function with info about the MOUSEOUT event
     col_select_table_el.children[0].children[0].addEventListener('click', putToken, true); // calls putToken function with info about the CLICK event
 
     start_btn_el.disabled = true; // disables the start button, so you can't start while playing
-
+    start_box_wrapper_el.style.display = 'none';
     showWarningOrInfo('',''); // clears warn_box's innerHTML
     body.id = 'body_plain_color'; // sets body's color to default
 
@@ -67,16 +97,17 @@ function selectColumnColor(ev){
         ev.target.style.cursor = 'pointer';
         switch(color){
             case 0:
-                body.id = 'body_color_1'; // changes body's background do color_1 (default: red)
+                //body.id = 'body_color_1'; // changes body's background do color_1 (default: red)  // FOR LATER
                 ev.target.className = 'color_1'; // changing hovered selection circle color to color_1 (default: red)
                 break;
             case 1:
-                body.id = 'body_color_2'; // changes body's background do color_2 (default: yellow)
+                //body.id = 'body_color_2'; // changes body's background do color_2 (default: yellow)  // FOR LATER
                 ev.target.className = 'color_2'; // changes hovered selection circle color to color_2 (default: yellow)
         }
     } else if(ev.type == 'mouseout') {
         ev.target.className = ''; // changes circle color back to none
-        body.id = 'body_plain_color'; // body background back to plain
+        //body.id = 'body_plain_color'; // body background back to plain  // FOR LATER
+        ev.target.style.cursor = 'default';
     }
 }
 
@@ -123,7 +154,7 @@ function checkWin(token_el){
                 && game_table_array[y+2][x].className == token_el.className
                 && game_table_array[y+3][x].className == token_el.className){
                 // calls the endGame function if certain conditions are satisfied
-                endGame(token_el, true, roofCols, 'vertically');
+                endGame(token_el, true, roofCols);
             }
         }
     }
@@ -136,7 +167,7 @@ function checkWin(token_el){
                 && game_table_array[y][x+2].className == token_el.className
                 && game_table_array[y][x+3].className == token_el.className){
                 // calls the endGame function if certain conditions are satisfied
-                endGame(token_el, true, roofCols, 'horizontally');
+                endGame(token_el, true, roofCols);
             }
         }
     }
@@ -149,7 +180,7 @@ function checkWin(token_el){
                 && game_table_array[y+2][x-2].className == token_el.className
                 && game_table_array[y+3][x-3].className == token_el.className){
                 // calls the endGame function if certain conditions are satisfied
-                endGame(token_el, true, roofCols, 'ascending');
+                endGame(token_el, true, roofCols);
             }
         }
     }
@@ -162,7 +193,7 @@ function checkWin(token_el){
                 && game_table_array[y+2][x+2].className == token_el.className
                 && game_table_array[y+3][x+3].className == token_el.className){
                 // calls the endGame function if certain conditions are satisfied
-                endGame(token_el, true, roofCols, 'descending');
+                endGame(token_el, true, roofCols);
             }
         }
     }
@@ -173,23 +204,24 @@ function checkWin(token_el){
 }
 
 //GAME END
-function endGame(token_el, isWin, roofCols, type){
+function endGame(token_el, isWin, roofCols){
     if(isWin == false && roofCols == x_in) showWarningOrInfo('win', '<b>Draw</b> (all columns are full, and there\'s no tokens in a row)');
-    else if(isWin == true && roofCols == x_in) showWarningOrInfo('win', `${token_el.className} won (${type}) (with all columns full)`);
-    else if(isWin == true && roofCols != x_in) showWarningOrInfo('win', `<b>${token_el.className}</b> won (${type})`);
-
+    else if(isWin == true && roofCols == x_in) showWarningOrInfo('win', `${token_el.className} won! (with all columns full)`);
+    else if(isWin == true && roofCols != x_in) showWarningOrInfo('win', `<b>${token_el.className}</b> won!`);
+    
     switch(color){
         case 0: color = 1; break;
         case 1: color = 0;
     }
-
+    
     // turns off the option to put more tokens, and hovering effect
     col_select_table_el.children[0].children[0].removeEventListener('mouseover', selectColumnColor, true);
-    col_select_table_el.children[0].children[0].removeEventListener('mouseout', selectColumnColor, true);
     col_select_table_el.children[0].children[0].removeEventListener('click', putToken, true);
     
     // enables the start button
     start_btn_el.disabled = false;
+    start_box_wrapper_el.style.display = 'absolute';
+    for(i=0;i<x_in;i++) col_select_table_el.children[0].children[0].children[i].className = '';
 }
 
 //WARNINGS/INFO
@@ -212,3 +244,35 @@ function showWarningOrInfo(type, content){
             warn_box_el.innerHTML = '';
     }
 }
+
+
+//STYLE
+const tables = document.getElementsByTagName('table');
+const td = document.getElementsByTagName('td');
+
+// MEDIA QUERIES
+//  portrait orientation
+const mediaQuery_orientationPortrait = window.matchMedia("(orientation: portrait)");
+mediaQuery_orientationPortrait.addEventListener("change", handleOrientationChange);
+
+function handleOrientationChange(e){
+    if(mediaQuery_orientationPortrait.matches){
+        for(i=0;i<tables.length;i++){
+            tables[i].style.borderSpacing = '1vw';
+        }
+        for(i=0;i<td.length;i++){
+            td[i].style.height = `calc((100vw/${x_in}) - (${tables[0].style.borderSpacing} + (${tables[0].style.borderSpacing}/${x_in}))`;
+            td[i].style.borderRadius = `calc(((100vw/${x_in}) - (${tables[0].style.borderSpacing} + (${tables[0].style.borderSpacing}/${x_in}))/2)`;
+        }
+    } else {
+        for(i=0;i<tables.length;i++){
+            tables[i].style.borderSpacing = '10px';
+        }
+        for(i=0;i<td.length;i++){
+            td[i].style.height = '70px';
+            td[i].style.width = '70px';
+            td[i].style.borderRadius = '35px';
+        }
+    }
+}
+

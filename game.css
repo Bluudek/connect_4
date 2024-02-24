@@ -1,44 +1,89 @@
 /* THERE COULD APPEAR SOME CHANGES */
 
 :root {
-    --color_1: #ff5347;
-    --color_2: #ffbf47;
-    --color_1_dark: #5f1e19;
-    --color_2_dark: #4b3814;
+    /* 1st set of colors*/
+    --red: #ff5347;
+    --yellow: #ffbf47;
+    /* 2nd set of colors*/
+    --blue: #47bfff;
+    --orange: #ff9e47;
+    /* 3rd set of colors*/
+    --green: #b8ff47;
+    --purple: #7447ff;
 }
 html, body {height: 100%;}
 
-body {margin: 0; color: #ffffff; font-family: 'Red Hat Display', sans-serif;}
+body {margin: 0; color: #ffffff; font-family: 'Red Hat Display', sans-serif; width: 100%;}
 #body_plain_color {background: #191919;}
-#body_color_1 {background: radial-gradient(circle at right, #191919 70%, var(--color_1_dark) 100%);}
-#body_color_2 {background: radial-gradient(circle at left, #191919 70%, var(--color_2_dark) 100%);}
 
 * {margin-block-start: 0; margin-block-end: 0; box-sizing: border-box;}
-table {border-spacing: 12px;}
-td {height: 60px; width: 60px;}
 
-.color_1 {background: var(--color_1);} /* can be changed */
-.color_2 {background: var(--color_2);} /* can be changed */
+.color_1 {background: var(--red);}
+.color_2 {background: var(--yellow);}
 
-/* HEADER BOX */
-#header_box {width: max-content; margin: 0 auto 1em; text-align: center;}
-#four {font-size: 2em;}
 
-/* WARN BOX */
+/* --HEADER BOX-- */
+#header_box {width: 100%; margin: 0 auto 1em; text-align: center;}
+#header_box p {overflow-wrap: break-word;}
+.four {font-size: 220%;}
+
+/* --WARN BOX-- */
 #warn_box {width: max-content; margin: 1em auto; text-align: center; min-height: 21px; color: #ffffff;}
 
-/* MAIN BOX */
-#main_box {width: max-content; margin: 1em auto;}
 
-#col_select_table {border: 2px dashed #ffffff2a; border-radius: 40px 40px 0 0; margin: 0 0 1em;}
-#col_select_table td {border: 2px dashed #ffffff2a; border-radius: 50%;}
+/* --MAIN BOX-- */
+#main_box {max-width: max-content; margin: 2em auto 1em;}
 
-#game_table {border: 2px solid #ffffff94; border-radius: 0 0 40px 40px;}
-#game_table td {border: 2px solid #ffffff94; border-radius: 50%;}
+/* column select table */
+#col_select_table {border: 1px dashed #ffffff2a; border-radius: 40px 40px 0 0;}
+#col_select_table td {border: 1px dashed #ffffff2a;}
 
-#start_box {width: max-content; margin: 2em auto 0;}
+/* token drop table */
+#game_table {border: 1px solid #ffffff94; border-radius: 0 0 40px 40px;}
+#game_table td {border: 1px solid #ffffff94;}
+
+
+/* --START BUTTON BOX-- */
+/* wrapper */
+#start_box_wrapper {position: absolute; background: #000000c0; width: 100%; height: 100%; top: 0;}
+
+/* box */
+#start_box {
+    position: relative;
+    width: max-content;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background: #161616;
+    padding: 0 1em 1em;
+    border-radius: 10px;
+}
+#start_box > div:nth-child(2) {margin: 1em; padding: 1em; background: #363636; border-radius: 10px;}
+
+#start_box_header {width: 100%; text-align: center;}
+
+select {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 1em;
+    margin: 5px 0 0;
+    background: #dcdcdc;
+    text-align: center;
+}
+
+#color_select {margin: 5px 0 0;}
+#color_select button {margin: 5px 5px 0 0; width: 40px; aspect-ratio: 1/1; border-radius: 20px; border: none;}
+#color_select button:hover {cursor: pointer; box-shadow: inset 0 0 0 25px #00000088;}
+#color_select button:active {box-shadow: inset 0 0 0 25px #000000aa;}
+#color_select button:nth-child(1) {background: linear-gradient(110deg, var(--red) 50%, var(--yellow) 50%);}
+#color_select button:nth-child(2) {background: linear-gradient(110deg, var(--blue) 50%, var(--orange) 50%);}
+#color_select button:nth-child(3) {background: linear-gradient(110deg, var(--purple) 50%, var(--green) 50%); margin: 5px 0 0;}
+
 #start_btn {
+    display: block;
     padding: 0.6em 1.2em;
+    margin: 1em auto 0;
     font-family: 'Red Hat Display', sans-serif;
     font-weight: 700;
     font-size: 1.5em;
@@ -50,3 +95,29 @@ td {height: 60px; width: 60px;}
 #start_btn:hover {background: #131313; transition: background 0.25s ease-in;}
 #start_btn:active {background: #646464; transition: none;}
 #start_btn:disabled {background: #191919; color: #444444;}
+
+
+/* --MEDIA QUERIES --*/
+/* portrait orientation */
+@media (orientation: portrait){
+    #header_box {font-size: 70%;}
+    #main_box {max-width: 100%;}
+    #col_select_table {
+        border-radius: 0;
+        border-top: 1px dashed #ffffff2a;
+        border-bottom: 0;
+        border-right: 0;
+        border-left: 0;
+        width: 100%;
+    }
+    #game_table {
+        border-radius: 0;
+        border-top: 1px solid #ffffff94;
+        border-bottom: 1px solid #ffffff94;
+        border-right: 0;
+        border-left: 0;
+        width: 100%;
+    }
+    #col_select_table td {border: 1px dashed #ffffff2a;}
+    #game_table td {border: 1px solid #ffffff94;}
+}
