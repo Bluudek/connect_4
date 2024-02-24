@@ -1,21 +1,15 @@
 # CONNECT-4 (mini-project)
-### A webapp version of the "CONNECT 4" game.
-*It was not built for client-server stucture (for now),*
-but it was mostly built for fun, and a bit for a training.
-
-### And also
-That's only a local PvP game, because I need to take some more time for the "AI" thing.
-
-### SO
-If you have any questions about it or you want to contribute, go ahead.
-(btw I'm not that familiar with how GitHub works, but I'll try to work with it in some way).
-
-**MORE FUNCTIONALITIES WILL BE MADE IN THE FUTURE**
 
 ### Project link: https://bluudek.github.io/connect_4/
 
 ## Here you got some screenshots of this mini-project
-![game before start](/screenshots/1.png)
-![red token](/screenshots/2.png)
-![yellow token](/screenshots/3.png)
-![win](/screenshots/4.png)
+!!! SCREENSHOTS ARE OUTDATED !!!
+Will make new, when the project will be mostly complete or big changes will be made to it.
+<p float="left" align="center">
+<img src="/screenshots/1.png" alt="game before start" width="49%">
+<img src="/screenshots/3.png" alt="yellow token" width="49%">
+<img src="/screenshots/2.png" alt="red token" width="49%">
+<img src="/screenshots/4.png" alt="win" width="49%">
+</p>
+
+
