@@ -1,8 +1,5 @@
 # CONNECT-4 (mini-project)
 
-### Important!
-It isn't responsive at all (at least for now).
-
 ### Project link: https://bluudek.github.io/connect_4/
 
 ## Here you got some screenshots of this mini-project
