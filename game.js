@@ -220,7 +220,7 @@ function endGame(token_el, isWin, roofCols){
     
     // enables the start button
     start_btn_el.disabled = false;
-    start_box_wrapper_el.style.display = 'absolute';
+    start_box_wrapper_el.style.display = 'block';
     for(i=0;i<x_in;i++) col_select_table_el.children[0].children[0].children[i].className = '';
 }
 
