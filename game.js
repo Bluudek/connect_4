@@ -51,7 +51,29 @@ function buildGrid(x, y){
     for(i=0; i<y; i++){
         game_table_el.children[0].appendChild(document.createElement('tr'));
         for(j=0; j<x; j++) game_table_el.children[0].children[i].appendChild(document.createElement('td'));
-    }    
+    }
+    console.log();
+}
+
+//GRID REMOVING (COLUMN SELECTION && GAME)
+function destroyGrid(x, y){
+    if(main_box_el.children.length > 0){
+        // removes all of game table child elements in descending order (the most last child element possible -> the most first child element possible)
+        for(i=y-1; i>=0; i--) {
+            for(j=x-1; j>=0; j--) game_table_el.children[0].children[i].removeChild(game_table_el.children[0].children[i].children[j]);
+            game_table_el.children[0].removeChild(game_table_el.children[0].children[i]);
+        }
+        game_table_el.removeChild(game_table_el.children[0]);
+
+        // removes all of select table child elements in descending order (the most last child element possible -> the most first child element possible)
+        for(i=x-1; i>=0; i--) col_select_table_el.children[0].children[0].removeChild(col_select_table_el.children[0].children[0].children[i]);
+        col_select_table_el.children[0].removeChild(col_select_table_el.children[0].children[0]);
+        col_select_table_el.removeChild(col_select_table_el.children[0]);
+
+        // removes game_table and select_table leaving only main_box
+        main_box_el.removeChild(main_box_el.children[1]);
+        main_box_el.removeChild(main_box_el.children[0]);
+    }
 }
 
 const game_table_array = new Array(y_in);
@@ -64,6 +86,7 @@ function startGame(){
         case '8x11': x_in = 11; y_in = 8;
     }
 
+    destroyGrid(x_in, y_in);
     buildGrid(x_in, y_in);
     //GAME TABLE ARRAY (to reach easier for wanted columns, by using loops)
     
@@ -83,7 +106,7 @@ function startGame(){
 
     for(i=0;i<x_in;i++) col_select_table_el.children[0].children[0].children[i].className = ''; // clears all selection columns, so it won't stuck with the color form a previous game
 
-    // clears all game grid columns (all cells), so it won't stuck with the color form a previous game
+    // clears all game grid columns (all cells), so it won't be stuck with the color from a previous game
     for(y=0;y<y_in;y++){
         for(x=0;x<x_in;x++){
             game_table_array[y][x].className = '';
@@ -214,7 +237,7 @@ function endGame(token_el, isWin, roofCols){
         case 1: color = 0;
     }
     
-    // turns off the option to put more tokens, and hovering effect
+    // turns off the option to put more tokens, and also the hovering effect
     col_select_table_el.children[0].children[0].removeEventListener('mouseover', selectColumnColor, true);
     col_select_table_el.children[0].children[0].removeEventListener('click', putToken, true);
     
