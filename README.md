@@ -1,15 +1,19 @@
-# CONNECT-4 (mini-project)
+<div align="center">
+  <h1>Connect 4</h1>
+  <h2>A classic and "easy" game, known by almost every human alive.</h2>
+  
+**The rule is pretty straightforward** - you have to put (at least) 4 tokens in a row, either horizontally, vertically or diagonally.  
+Only difference is that here you can have more fun by choosing different sized grids to play on, as well as colors.  
+*There's also a plan to extend this game with more modes, such as "player vs bot" and "online multiplayer".*
+<br><br>
+  <img height="600px" src="https://github.com/Bluudek/connect_4/blob/main/screenshots/settings.png">
+  <img height="600px" src="https://github.com/Bluudek/connect_4/blob/main/screenshots/gameplay.png">
+</div>
 
-### Project link: https://bluudek.github.io/connect_4/
+## Contributing
+If you have some interesting ideas that you'd want to implement here, feel free to contribute, but before you do that, please check out:
+* **[CONTRIBUTING](https://github.com/Bluudek/connect_4/blob/main/CONTRIBUTING.md)**  
+* **[LICENSE](https://github.com/Bluudek/connect_4/blob/main/LICENSE)**
 
-## Here you got some screenshots of this mini-project
-!!! SCREENSHOTS ARE OUTDATED !!!
-Will make new, when the project will be mostly complete or big changes will be made to it.
-<p float="left" align="center">
-<img src="/screenshots/1.png" alt="game before start" width="49%">
-<img src="/screenshots/3.png" alt="yellow token" width="49%">
-<img src="/screenshots/2.png" alt="red token" width="49%">
-<img src="/screenshots/4.png" alt="win" width="49%">
-</p>
-
-
+## License
+This project is licensed under the [Apache 2.0 license](https://github.com/Bluudek/connect_4/blob/main/LICENSE)
