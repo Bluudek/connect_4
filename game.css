@@ -1,16 +1,5 @@
 /* THERE COULD APPEAR SOME CHANGES */
 
-:root {
-    /* 1st set of colors*/
-    --red: #ff5347;
-    --yellow: #ffbf47;
-    /* 2nd set of colors*/
-    --blue: #47bfff;
-    --orange: #ff9e47;
-    /* 3rd set of colors*/
-    --green: #b8ff47;
-    --purple: #7447ff;
-}
 html, body {height: 100%;}
 
 body {margin: 0; color: #ffffff; font-family: 'Red Hat Display', sans-serif; width: 100%;}
@@ -18,8 +7,8 @@ body {margin: 0; color: #ffffff; font-family: 'Red Hat Display', sans-serif; wid
 
 * {margin-block-start: 0; margin-block-end: 0; box-sizing: border-box;}
 
-.color_1 {background: var(--red);}
-.color_2 {background: var(--yellow);}
+.color_1 {background: var(--player1color, --red);}
+.color_2 {background: var(--player2color, --yellow);}
 
 
 /* --HEADER BOX-- */
@@ -76,9 +65,7 @@ select {
 #color_select button {margin: 5px 5px 0 0; width: 40px; aspect-ratio: 1/1; border-radius: 20px; border: none;}
 #color_select button:hover {cursor: pointer; box-shadow: inset 0 0 0 25px #00000088;}
 #color_select button:active {box-shadow: inset 0 0 0 25px #000000aa;}
-#color_select button:nth-child(1) {background: linear-gradient(110deg, var(--red) 50%, var(--yellow) 50%);}
-#color_select button:nth-child(2) {background: linear-gradient(110deg, var(--blue) 50%, var(--orange) 50%);}
-#color_select button:nth-child(3) {background: linear-gradient(110deg, var(--purple) 50%, var(--green) 50%); margin: 5px 0 0;}
+#color_select button:nth-child(3) {margin: 5px 0 0;}
 
 #start_btn {
     display: block;
