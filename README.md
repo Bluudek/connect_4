@@ -6,8 +6,8 @@
 Only difference is that here you can have more fun by choosing different sized grids to play on, as well as colors.  
 *There's also a plan to extend this game with more modes, such as "player vs bot" and "online multiplayer".*
 <br><br>
-  <img height="600px" src="https://github.com/Bluudek/connect_4/blob/main/screenshots/settings.png">
-  <img height="600px" src="https://github.com/Bluudek/connect_4/blob/main/screenshots/gameplay.png">
+  <img height="400px" src="https://github.com/Bluudek/connect_4/blob/main/screenshots/settings.png">
+  <img height="400px" src="https://github.com/Bluudek/connect_4/blob/main/screenshots/gameplay.png">
 </div>
 
 ## Contributing
@@ -17,3 +17,4 @@ If you have some interesting ideas that you'd want to implement here, feel free 
 
 ## License
 This project is licensed under the [Apache 2.0 license](https://github.com/Bluudek/connect_4/blob/main/LICENSE)
+
