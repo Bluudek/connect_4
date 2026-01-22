@@ -7,8 +7,8 @@ body {margin: 0; color: #ffffff; font-family: 'Red Hat Display', sans-serif; wid
 
 * {margin-block-start: 0; margin-block-end: 0; box-sizing: border-box;}
 
-.color_1 {background: var(--player1color, --red);}
-.color_2 {background: var(--player2color, --yellow);}
+.color_1 {background: var(--player1color, #ff5347);}
+.color_2 {background: var(--player2color, #ffbf47);}
 
 
 /* --HEADER BOX-- */
@@ -107,4 +107,5 @@ select {
     }
     #col_select_table td {border: 1px dashed #ffffff2a;}
     #game_table td {border: 1px solid #ffffff94;}
+
 }
